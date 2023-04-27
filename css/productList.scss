@@ -28,7 +28,7 @@ body {
                 align-items: center;
 
                 input[type=submit], input[type=button] {
-                    width: 6rem;
+                    width: 8rem;
                     height: 2rem;
                     border: 1px solid $borderColor;
                     border-radius: 5px;
@@ -73,7 +73,7 @@ body {
                         }
                     }
 
-                    input[type=checkbox] {
+                    .delete-checkbox {
                         position: absolute;
                         width: 20px;
                         height: 20px;
@@ -81,10 +81,10 @@ body {
                         left: 5px;
                         accent-color: $borderColor;
                     }
-                    input[type=checkbox]:hover {
+                    .delete-checkbox:hover {
                         cursor: pointer;
                     }
-                    input[type=checkbox]:checked {
+                    .delete-checkbox:checked {
                         background-color: $borderColor;
                     }
                 }

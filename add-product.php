@@ -1,35 +1,22 @@
 <?php
-require('process.php');
+spl_autoload_register('classAutoLoader');
+
+function classAutoLoader($className)
+{
+    $path = "classes/";
+    $extension = ".class.php";
+    $fullPath = $path . $className . $extension;
+
+    include_once $fullPath;
+}
+?>
+<?php
 if (isset($_POST['submit'])) {
-    $validation = new ProductValidator($_POST);
-    $errors = $validation->validateForm();
+    $validation = new ProductValidator($_POST); 
+    $errors = $validation->validateForm(); 
     if (empty($errors)) {
         $type = $_POST['type'];
-        if ($type === 'DVD') {
-            $newProduct = new DVD($_POST);
-            $newProduct->setSKU($_POST['SKU']);
-            $newProduct->setName($_POST['name']);
-            $newProduct->setPrice($_POST['price']);
-            $newProduct->setType($_POST['type']);
-            $newProduct->setSize($_POST['size']);
-        }
-        if ($type === 'Furniture') {
-            $newProduct = new Furniture($_POST);
-            $newProduct->setSKU($_POST['SKU']);
-            $newProduct->setName($_POST['name']);
-            $newProduct->setPrice($_POST['price']);
-            $newProduct->setType($_POST['type']);
-            $newProduct->setDimensions($_POST['height'], $_POST['width'], $_POST['length']);
-        }
-        if ($type === 'Book') {
-            $newProduct = new Book($_POST);
-            $newProduct->setSKU($_POST['SKU']);
-            $newProduct->setName($_POST['name']);
-            $newProduct->setPrice($_POST['price']);
-            $newProduct->setType($_POST['type']);
-            $newProduct->setWeight($_POST['weight']);
-        }
-        $newProduct->insertData();
+        $newProduct = (new ProductTypeController)->insertProduct(new $type); // insert new product to MySQL Database 
     }
 }
 if (isset($_POST['cancel'])) {
@@ -54,7 +41,7 @@ if (isset($_POST['cancel'])) {
                 <div class="header">
                     <h1>Product Add</h1>
                     <div>
-                        <input type="submit" name="submit" value="Submit">
+                        <input type="submit" name="submit" value="Save">
                         <input type="submit" name="cancel" value="Cancel">
                     </div>
                 </div>
@@ -138,7 +125,7 @@ if (isset($_POST['cancel'])) {
                     'Book'
                 ],
             },
-            methods: {
+            methods: { //front-end validation on blur
                 validateSKU() {
                     if (this.product.SKU === '') {
                         this.errors.SKU = 'SKU cannot be empty.';

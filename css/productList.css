@@ -17,7 +17,7 @@ body {
         justify-content: space-between;
         align-items: center; }
         body .container .product_list .header input[type=submit], body .container .product_list .header input[type=button] {
-          width: 6rem;
+          width: 8rem;
           height: 2rem;
           border: 1px solid #e38a8a;
           border-radius: 5px;
@@ -53,16 +53,16 @@ body {
             padding: 0; }
             body .container .product_list .product_container .product_box .item p {
               margin: 2px auto; }
-          body .container .product_list .product_container .product_box input[type=checkbox] {
+          body .container .product_list .product_container .product_box .delete-checkbox {
             position: absolute;
             width: 20px;
             height: 20px;
             top: 5px;
             left: 5px;
             accent-color: #e38a8a; }
-          body .container .product_list .product_container .product_box input[type=checkbox]:hover {
+          body .container .product_list .product_container .product_box .delete-checkbox:hover {
             cursor: pointer; }
-          body .container .product_list .product_container .product_box input[type=checkbox]:checked {
+          body .container .product_list .product_container .product_box .delete-checkbox:checked {
             background-color: #e38a8a; }
     body .container footer {
       width: 100%;

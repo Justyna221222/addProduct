@@ -1,3 +1,15 @@
+<?php
+spl_autoload_register('classAutoLoader');
+
+function classAutoLoader($className)
+{
+    $path = "classes/";
+    $extension = ".class.php";
+    $fullPath = $path . $className . $extension;
+
+    include_once $fullPath;
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -15,16 +27,15 @@
                 <div class="header">
                     <h1>Product list</h1>
                     <div>
-                        <input type='submit' value='Mass delete' name='massDelete'>
-                        <input type="button" value="Add" onclick="location.href = './add-product.php';">
+                        <input type='submit' value='MASS DELETE' name='massDelete'>
+                        <input type="button" value="ADD" onclick="location.href = './add-product.php';">
                     </div>
                     </header>
                 </div>
                 <?php
-                require('getOrDeleteProducts.php');
                 $productList = new ProductDB();
-                $productList->getData();
-                $productList->displayData();
+                $productList->getData(); // get products data from MySQL Database
+                $productList->displayData(); // display data on screen
 
                 if (isset($_POST['massDelete'])) {
                     $productsToDelete = new DeleteProduct;
