@@ -1,10 +1,10 @@
 <?php
 class DB
 {
-    private $servername = "sql210.epizy.com";
-    private $username = "epiz_33906668";
-    private $password = "K0rStDEZVqx";
-    private $dbname = "epiz_33906668_products";
+    private $servername = "sql204.epizy.com";
+    private $username = "epiz_34136278";
+    private $password = "2hwMlgcYfU41M";
+    private $dbname = "epiz_34136278_addProductDB";
 
     protected function connect()
     {

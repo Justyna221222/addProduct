@@ -1,5 +1,5 @@
 <?php
-class Book extends Product
+class Food extends Product
 {
     public function setValue()
     {

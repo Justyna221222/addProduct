@@ -1,5 +1,5 @@
 <?php
-class DVD extends Product
+class Clothes extends Product
 {
 
     public function setValue()
@@ -8,7 +8,7 @@ class DVD extends Product
         $this->setName($_POST['name']);
         $this->setPrice($_POST['price']);
         $this->setType($_POST['type']);
-        $this->setAdditional("Size: " . $_POST['size'] . " MB");
+        $this->setAdditional("Size: " . $_POST['size']);
     }
     public function validateProductType()
     {

@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 1);
 spl_autoload_register('classAutoLoader');
 
 function classAutoLoader($className)
@@ -39,7 +40,7 @@ if (isset($_POST['cancel'])) {
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" id="product_form">
             <div class="container">
                 <div class="header">
-                    <h1>Product Add</h1>
+                    <h1>Add new product</h1>
                     <div>
                         <input type="submit" name="submit" value="Save">
                         <input type="submit" name="cancel" value="Cancel">
@@ -65,12 +66,12 @@ if (isset($_POST['cancel'])) {
                     <span class="error">{{ errors.type }}</span>
                 </div>
                 <div>
-                    <div v-if="product.type === 'DVD'" class="additional_info_container">
-                        <div><label to="size">Size(MB)</label>
+                    <div v-if="product.type === 'Clothes'" class="additional_info_container">
+                        <div><label to="size">Size (NO)</label>
                             <input type="number" id="size" name="size" v-model="product.size" @blur="validateSize" value="<?php echo htmlspecialchars($_POST['size']) ?? '' ?>" />
                             <div class="error additional">{{ errors.size }}</div>
                         </div><br />
-                        <div>Please, provide size in MB.</div>
+                        <div>Please, provide size.</div>
                     </div>
                     <div v-if="product.type === 'Furniture'" class="additional_info_container">
                         <div><label to="height">Height(CM)</label><input type="number" id="height" name="height" v-model="product.height" @blur="validateDimensions" value="<?php echo htmlspecialchars($_POST['height']) ?? '' ?>" /></div><br />
@@ -79,7 +80,7 @@ if (isset($_POST['cancel'])) {
                         <span class="error additional"><?php echo $dimensionsError; ?>{{ errors.dimensions }}</span><br />
                         <div>Please, provide dimenstions in cm.</div>
                     </div>
-                    <div v-if="product.type === 'Book'" class="additional_info_container">
+                    <div v-if="product.type === 'Food'" class="additional_info_container">
                         <div><label to="weight">Weight(KG)</label><input type="number" name="weight" id="weight" v-model="product.weight" @blur="validateWeight" value="<?php echo htmlspecialchars($_POST['weight']) ?? '' ?>" /><span class="error additional"> {{ errors.weight }}</span></div><br />
                         <div>Please, provide weight in kg.</div>
                     </div>
@@ -90,7 +91,7 @@ if (isset($_POST['cancel'])) {
         <footer>
             <div class="footer_container">
                 <hr />
-                <p class="footer">Scandiweb test assignment - Justyna Miczek</p>
+                <p class="footer">Justyna Miczek</p>
             </div>
         </footer>
     </div>
@@ -120,9 +121,9 @@ if (isset($_POST['cancel'])) {
                     weight: '<?php echo htmlspecialchars($errors['weight']) ?? '' ?>'
                 },
                 options: [
-                    'DVD',
+                    'Clothes',
                     'Furniture',
-                    'Book'
+                    'Food'
                 ],
             },
             methods: { //front-end validation on blur

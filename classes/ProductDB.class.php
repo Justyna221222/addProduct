@@ -6,7 +6,7 @@ class ProductDB extends DB
     function getData()
     {
 
-        $sql = "SELECT SKU, name, price, additional FROM MyProducts ORDER BY SKU";
+        $sql = "SELECT SKU, name, price, additional FROM AddProductDB ORDER BY SKU";
         $result = $this->connect()->query($sql);
 
         while ($row = $result->fetch_assoc()) {

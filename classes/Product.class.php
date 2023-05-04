@@ -63,10 +63,10 @@ abstract class Product
 
     public function insertData()
     {
-        $servername = "sql210.epizy.com";
-        $username = "epiz_33906668";
-        $password = "K0rStDEZVqx";
-        $dbname = "epiz_33906668_products";
+        $servername = "sql204.epizy.com";
+        $username = "epiz_34136278";
+        $password = "2hwMlgcYfU41M";
+        $dbname = "epiz_34136278_addProductDB";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -74,7 +74,7 @@ abstract class Product
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $sql = "INSERT INTO MyProducts (SKU, name, price, type, additional)
+        $sql = "INSERT INTO AddProductDB (SKU, name, price, type, additional)
         VALUES ('" . $this->getSKU() . "','" . $this->getName() . "','" . $this->getPrice() . "','" . $this->getType() . "','" . $this->getAdditional() . "')";
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";

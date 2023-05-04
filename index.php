@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 1);
 spl_autoload_register('classAutoLoader');
 
 function classAutoLoader($className)
@@ -15,7 +16,7 @@ function classAutoLoader($className)
 
 <head>
     <meta charset="utf-8">
-    <title>Scandiweb test assignment - Justyna Miczek</title>
+    <title>Add Product - Justyna Miczek</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <link rel="stylesheet" href="./css/productList.css" type="text/css" />
 </head>
@@ -47,7 +48,7 @@ function classAutoLoader($className)
         <footer>
             <div class="footer_container">
                 <hr />
-                <p class="footer">Scandiweb test assignment - Justyna Miczek</p>
+                <p class="footer">Justyna Miczek</p>
             </div>
 
         </footer>
